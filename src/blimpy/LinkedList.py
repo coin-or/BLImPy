@@ -5,7 +5,7 @@ It can be used as a drop-in replacement for the built-in list class.
 Created on Jan 29, 2012
 '''
 
-__version__    = '1.0.0'
+__version__    = '1.1.0'
 __author__     = 'Ted Ralphs, Aykut Bulut (ted@lehigh.edu, ayb211@lehigh.edu)'
 __license__    = 'BSD'
 __maintainer__ = 'Aykut Bulut'

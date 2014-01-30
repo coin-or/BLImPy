@@ -2,7 +2,7 @@
 A basic stack implementation using a linked list.
 '''
 
-__version__    = '1.0.0'
+__version__    = '1.1.0'
 __author__     = 'Aykut Bulut, Ted Ralphs (ayb211@lehigh.edu,ted@lehigh.edu)'
 __license__    = 'BSD'
 __maintainer__ = 'Aykut Bulut'
