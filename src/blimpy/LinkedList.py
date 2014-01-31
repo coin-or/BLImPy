@@ -5,7 +5,7 @@ It can be used as a drop-in replacement for the built-in list class.
 Created on Jan 29, 2012
 '''
 
-__version__    = '1.0.0'
+__version__    = '1.1.0'
 __author__     = 'Ted Ralphs, Aykut Bulut (ted@lehigh.edu, ayb211@lehigh.edu)'
 __license__    = 'BSD'
 __maintainer__ = 'Aykut Bulut'
@@ -105,9 +105,9 @@ class LinkedList(object):
         self.length -= 1
         return True
 
-    def __delitem__(self, item):
-        if not self.remove(item):
-            raise KeyError, "Key not found in list"
+    def __delitem__(self, position):
+        if self.pop(position) == None:
+            raise KeyError, "Index out of bounds"
 
     def insert(self, position, item):
         ''' class method that inserts item to the given position
@@ -144,13 +144,15 @@ class LinkedList(object):
         pre: self, position (optional), position should be less than length
         of the list, list should not be empty
         post: return the item at given index or last item if not specified'''
+        if index > self.length -1 or index < 0:
+            return None
         previous = None
         current = self.head
         if index == None:
             current = self.head
             self.head = self.head.getNext()
         else:
-            for i in range(self.length - index - 1):
+            for i in range(self.length - index - 2):
                 previous = current
                 current = current.getNext()
             if previous == None:
