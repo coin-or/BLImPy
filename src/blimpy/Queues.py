@@ -3,7 +3,7 @@ This module implements a Queue class, a simple list-based queue data structure
 and a PriorityQueue class, which is a heap-based priority queue data structure.
 '''
 
-__version__    = '1.0.0'
+__version__    = '1.1.0'
 __author__     = 'Aykut Bulut, Ted Ralphs (ayb211@lehigh.edu,ted@lehigh.edu)'
 __license__    = 'BSD'
 __maintainer__ = 'Aykut Bulut'
@@ -81,9 +81,9 @@ class PriorityQueue(object):
         __init__(self):        constructor of the class
         isEmpty(self):         returns True if the queue is empty, False
                                otherwise
-        push(self,item,priority): inserts item with given priority in to the
-                               queue
-        pop(self,item):        removes item with highest priority in the queue
+        push(self,key,item,priority): inserts item with given key and 
+                               priority into the queue
+        pop(self,index):       removes item with index from the queue
                                if no item is specified or removes the given
                                item if item is specified
         size(self):            returns the size of the queue

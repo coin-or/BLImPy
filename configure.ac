@@ -1,7 +1,7 @@
 #============================================================================#
 # This file is part of the BLImPy library                                    #
 #                                                                            #
-# BLiMPy is distributed under the Eclipse Public License as part of the      #
+# BLImPy is distributed under the Eclipse Public License as part of the      #
 # COIN-OR repository (http://www.coin-or.org).                               #
 #                                                                            #
 # Authors: Ayukut Bulut, Lehigh University (ayb211@lehigh.edu)               #
@@ -19,7 +19,7 @@
 AC_PREREQ(2.59)
 
 # name of project, version number, contact info
-AC_INIT([BLImPy],[trunk],[coin-bazaar@lists.coin-or.org])
+AC_INIT([BLImPy],[1.1.0],[coin-bazaar@lists.coin-or.org])
 
 # copyright for configure script
 AC_COPYRIGHT([
