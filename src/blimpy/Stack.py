@@ -46,13 +46,20 @@ class Stack(object):
 
     def size(self):
         return len(self.items)
-
+    
+    def __repr__(self):
+        return self.items.__repr__()
+    
+    def __str__(self):
+        return self.items.__str__()
 
 if __name__ == '__main__':
 
     s = Stack()
 
     for i in range(10):
-        s.push(i)
+        s.push((i, 1))
 
     print s.pop()
+
+    print s
