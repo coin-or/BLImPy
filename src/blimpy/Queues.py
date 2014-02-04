@@ -138,12 +138,14 @@ class PriorityQueue(object):
         except KeyError:
             return None
 
-    def push(self, key, item, priority = 0):
+    def push(self, key, priority = 0, item = None):
         '''
         Add to the heap or update the priority of an existing task.
         '''
         if key in self.entry_finder:
             self.remove(key)
+        if item is None:
+            item = key
         count = next(self.counter)
         entry = [priority, count, item, key]
         self.entry_finder[key] = entry
