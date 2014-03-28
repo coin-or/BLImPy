@@ -144,7 +144,7 @@ class LinkedList(object):
         pre: self, position (optional), position should be less than length
         of the list, list should not be empty
         post: return the item at given index or last item if not specified'''
-        if (index is not None and 
+        if (index is not None and
             (index > self.length -1 or index < 0)):
             return None
         previous = None
@@ -153,7 +153,7 @@ class LinkedList(object):
             current = self.head
             self.head = self.head.getNext()
         else:
-            for i in range(self.length - index - 2):
+            for i in range(self.length - index - 1):
                 previous = current
                 current = current.getNext()
             if previous == None:
