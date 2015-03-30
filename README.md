@@ -1,5 +1,5 @@
-BLImPy
-======
+BLImPy 1.3
+==========
 
 BLImPy (Basic List Implementation in Python) is a basic implementation of a
 linked list data structure that is a drop-in replacement for the Python list.
