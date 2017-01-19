@@ -11,7 +11,7 @@ and to be used with GiMPy, a graph implementation in Python. BLImPy includes a
 stack data structure, a queue data structure, and a priority queue data
 structure.
 
-Some documentation is here:
+Documentation for the API is here:
 
 http://tkralphs.github.io/BLImPy/
 
