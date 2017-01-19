@@ -4,9 +4,9 @@ from setuptools import setup
 import setuptools
 
 setup(name='coinor.blimpy',
-      version='1.3.4',
-      description='''Basic List Implementation in Python',
-      long_description='BLImPy (Basic List Implementation in Python) is a basic implementation of a linked list data structure that is a drop-in replacement for the Python list. It supports all basic list methods. The data structure is not as efficient as the Python list for many operations and in most cases, should not be used except in a teaching setting. It was developed to illustrate basic principles and to be used with GiMPy, a graph implementation in Python. BLImPy includes a stack data structure, a queue data structure, and a priority queue data structure.
+      version='1.3.5',
+      description='Basic List Implementation in Python',
+      long_description='''BLImPy (Basic List Implementation in Python) is a basic implementation of a linked list data structure that is a drop-in replacement for the Python list. It supports all basic list methods. The data structure is not as efficient as the Python list for many operations and in most cases, should not be used except in a teaching setting. It was developed to illustrate basic principles and to be used with GiMPy, a graph implementation in Python. BLImPy includes a stack data structure, a queue data structure, and a priority queue data structure.
 
 Documentation for the API is here:
 
