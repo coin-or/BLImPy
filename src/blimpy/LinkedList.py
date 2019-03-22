@@ -4,6 +4,10 @@ A basic linked list implementation conforming to the Python list API.
 It can be used as a drop-in replacement for the built-in list class.
 Created on Jan 29, 2012
 '''
+from __future__ import print_function
+from builtins import str
+from builtins import range
+from builtins import object
 
 __version__    = '1.1.0'
 __author__     = 'Ted Ralphs, Aykut Bulut (ted@lehigh.edu, ayb211@lehigh.edu)'
@@ -107,7 +111,7 @@ class LinkedList(object):
 
     def __delitem__(self, position):
         if self.pop(position) == None:
-            raise KeyError, "Index out of bounds"
+            raise KeyError("Index out of bounds")
 
     def insert(self, position, item):
         ''' class method that inserts item to the given position
@@ -305,17 +309,17 @@ if __name__ == '__main__':
         o.append(i)
 
     for i in reversed(o):
-        print i
-    print 100000 in o
+        print(i)
+    print(100000 in o)
 
-    print o.pop()
-    print o.pop(0)
+    print(o.pop())
+    print(o.pop(0))
     o.insert(0, 'a')
-    print o.pop(0)
+    print(o.pop(0))
 
     a = o[:50]
     for i in a:
-        print i
+        print(i)
     a = o[50:]
     for i in a:
-        print i
+        print(i)

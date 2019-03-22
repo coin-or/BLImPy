@@ -2,6 +2,9 @@
 This module implements a Queue class, a simple list-based queue data structure
 and a PriorityQueue class, which is a heap-based priority queue data structure.
 '''
+from __future__ import absolute_import
+from builtins import next
+from builtins import object
 
 __version__    = '1.1.0'
 __author__     = 'Aykut Bulut, Ted Ralphs (ayb211@lehigh.edu,ted@lehigh.edu)'
@@ -11,7 +14,7 @@ __email__      = 'ayb211@lehigh.edu'
 __url__        = None
 __title__      = 'Queue data structure'
 
-from LinkedList import LinkedList
+from .LinkedList import LinkedList
 
 class Queue(object):
     '''

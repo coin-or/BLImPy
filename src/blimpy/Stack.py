@@ -1,6 +1,10 @@
 '''
 A basic stack implementation using a linked list.
 '''
+from __future__ import print_function
+from __future__ import absolute_import
+from builtins import range
+from builtins import object
 
 __version__    = '1.1.0'
 __author__     = 'Aykut Bulut, Ted Ralphs (ayb211@lehigh.edu,ted@lehigh.edu)'
@@ -10,7 +14,7 @@ __email__      = 'ayb211@lehigh.edu'
 __url__        = None
 __title__      = 'Stack data structure'
 
-from LinkedList import LinkedList
+from .LinkedList import LinkedList
 
 class Stack(object):
     '''
@@ -60,6 +64,6 @@ if __name__ == '__main__':
     for i in range(10):
         s.push((i, 1))
 
-    print s.pop()
+    print(s.pop())
 
-    print s
+    print(s)
