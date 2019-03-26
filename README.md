@@ -1,4 +1,6 @@
-# BLImPy 1.3
+# BLImPy 2.0
+
+## Now with Python 3 support!
 
 [![DOI](https://zenodo.org/badge/15832380.svg)](https://zenodo.org/badge/latestdoi/15832380)
 
