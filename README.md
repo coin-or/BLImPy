@@ -11,6 +11,11 @@ and to be used with GiMPy, a graph implementation in Python. BLImPy includes a
 stack data structure, a queue data structure, and a priority queue data
 structure.
 
+Install with
+```
+pip install coinor.blimpy
+```
+
 Documentation for the API is here:
 
 http://tkralphs.github.io/BLImPy/
