@@ -1,0 +1,1104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.5.3" />
+<title>coinor.blimpy.LinkedList API documentation</title>
+<meta name="description" content="Lists Module
+A basic linked list implementation conforming to the Python list API.
+It can be used as a drop-in replacement for the built-in list …" />
+<link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+<style>.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{font-weight:bold}#index h4 + ul{margin-bottom:.6em}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.name small{font-weight:normal}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase;cursor:pointer}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}.admonition{padding:.1em .5em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title"><code>coinor.blimpy.LinkedList</code> module</h1>
+</header>
+<section id="section-intro">
+<p>Lists Module
+A basic linked list implementation conforming to the Python list API.
+It can be used as a drop-in replacement for the built-in list class.
+Created on Jan 29, 2012</p>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">&#39;&#39;&#39;
+Lists Module
+A basic linked list implementation conforming to the Python list API.
+It can be used as a drop-in replacement for the built-in list class.
+Created on Jan 29, 2012
+&#39;&#39;&#39;
+from __future__ import print_function
+from builtins import str
+from builtins import range
+from builtins import object
+
+__version__    = &#39;1.1.0&#39;
+__author__     = &#39;Ted Ralphs, Aykut Bulut (ted@lehigh.edu, ayb211@lehigh.edu)&#39;
+__license__    = &#39;BSD&#39;
+__maintainer__ = &#39;Aykut Bulut&#39;
+__email__      = &#39;ayb211@lehigh.edu&#39;
+__url__        = None
+__title__      = &#39;Linked list data structure&#39;
+
+from copy import deepcopy
+
+class Node(object):
+    &#39;&#39;&#39; Basic data type that LinkedList will contain
+    pre: data that node will contain
+    post: Node type object
+    &#39;&#39;&#39;
+    def __init__(self, initdata, nextNode = None):
+        &#39;&#39;&#39;constructor of Node class
+        pre: Node class object (self), initial data (initdata)&#39;&#39;&#39;
+        self.data = initdata
+        self.nextNode = nextNode
+
+    def getData(self):
+        &#39;&#39;&#39; class method that returns to data
+        pre: self
+        post: data of the Node&#39;&#39;&#39;
+        return self.data
+
+    def getNext(self):
+        return self.nextNode
+
+    def setData(self, newdata):
+        &#39;&#39;&#39; class method that sets data
+        pre: self, new data&#39;&#39;&#39;
+        self.data = newdata
+
+    def setNext(self, newnext):
+        &#39;&#39;&#39; class method that changes the next Node
+        pre: self, new next&#39;&#39;&#39;
+        self.nextNode = newnext
+
+    def __repr__(self):
+        return &#39;Node instance, data:%s, nextNode:%s&#39; %(self.getData(), self.getNext())
+
+    def __str__(self):
+        return str(self.data)
+
+
+class LinkedList(object):
+    &#39;&#39;&#39;implementation of link list data structure.
+    The behavior is designed to be the same as a Python list.
+    For efficiency when using the list as a stack, the list is stored
+    such that the last item in the list is the head node. Thus, the
+    append, push, pop, and most other methods are efficient, but
+    forward iteration is not. Reverse iteration is efficient, however,
+    pre:  Node is the head node of a linked list and length is the length of
+          that list
+    post: creates a LinkedList type object
+    &#39;&#39;&#39;
+
+    def __init__(self, Node=None, length = 0):
+        &#39;&#39;&#39; constructor method of the class
+        pre: self&#39;&#39;&#39;
+        self.head = Node
+        self.length = length
+
+    def __contains__(self, item):
+        &#39;&#39;&#39; sequential search method
+        pre: self, item to be searched
+        post: True if list contains the item, False otherwise&#39;&#39;&#39;
+        current = self.head
+        while current != None:
+            if current.getData() == item:
+                return True
+            else:
+                current = current.getNext()
+        return False
+
+    def remove(self, item):
+        &#39;&#39;&#39; class method that removes the first occurrence of the given item
+        if there is one
+        pre: self, item &#39;&#39;&#39;
+        current = self.head
+        previous = None
+        found = False
+        while not found and current != None:
+            if current.getData() == item:
+                found = True
+            else:
+                previous = current
+                current = current.getNext()
+
+        if not found:
+            return False
+        elif previous == None:
+            self.head = current.getNext()
+        else:
+            previous.setNext(current.getNext())
+        self.length -= 1
+        return True
+
+    def __delitem__(self, position):
+        if self.pop(position) == None:
+            raise KeyError(&#34;Index out of bounds&#34;)
+
+    def insert(self, position, item):
+        &#39;&#39;&#39; class method that inserts item to the given position
+        pre: self, position, item
+        position should not be greater than length of the list&#39;&#39;&#39;
+        previous = None
+        current = self.head
+        for i in range(self.length - position):
+            previous = current
+            current = current.getNext()
+        tmp = Node(item, current)
+        if previous == None:
+            self.head = tmp
+        else:
+            previous.setNext(tmp)
+        self.length += 1
+
+    def peek(self, index = None):
+        &#39;&#39;&#39; class method that retrieves, but does not remove,
+        the head (first element) of this list
+        pre: self
+        post: the data of the head of the list or None if the list is empty&#39;&#39;&#39;
+        if self.head == None:
+            return None
+        elif index == None:
+            return self.head.getData()
+        else:
+            return self[index]
+
+    def pop(self, index = None):
+        &#39;&#39;&#39; class method that removes the item at the given position
+        in the list, and returns it. If no index is specified
+        removes and returns the last item in the list
+        pre: self, position (optional), position should be less than length
+        of the list, list should not be empty
+        post: return the item at given index or last item if not specified&#39;&#39;&#39;
+        if (index is not None and
+            (index &gt; self.length -1 or index &lt; 0)):
+            return None
+        previous = None
+        current = self.head
+        if index == None:
+            current = self.head
+            self.head = self.head.getNext()
+        else:
+            for i in range(self.length - index - 1):
+                previous = current
+                current = current.getNext()
+            if previous == None:
+                self.head = current.getNext()
+            else:
+                previous.setNext(current.getNext())
+        self.length -= 1
+        return current.data
+
+    def __len__(self):
+        &#39;&#39;&#39; class method that returns the number of items in the list
+        pre: self
+        post: returns number of items in the list&#39;&#39;&#39;
+        return self.length
+
+    def append(self, item):
+        &#39;&#39;&#39; class method that appends the given item at the end of the list
+        pre: self, item&#39;&#39;&#39;
+        current = self.head
+        self.head = Node(item)
+        self.head.nextNode = current
+        self.length += 1
+
+    def extend(self, otherLinkedList):
+        &#39;&#39;&#39; class method that extends the list by adding otherLinkedList at the
+         end of the self
+         pre: self, otherLinkedList&#39;&#39;&#39;
+        #if self.head==None:
+        #    self.head = otherLinkedList.head
+        #    return
+        #if otherLinkedList.head==None:
+        #    return
+        for item in otherLinkedList:
+            self.append(item)
+
+    def index(self, item):
+        &#39;&#39;&#39; class method that returns the index of the first occurance of
+        item, returns None if there is no any item.
+        pre: self, item
+        post: item index or None&#39;&#39;&#39;
+        current = self.head
+        for index in range(self.length, 0 , -1):
+            if current == None:
+                break
+            if current.getData() == item:
+                return index
+            current = current.getNext()
+        return None
+
+    def count(self, item):
+        &#39;&#39;&#39; class method that counts the number of occurances of item
+         in the list
+        pre: self, item
+        post: number of occurances of item in the list&#39;&#39;&#39;
+        count = 0
+        current = self.head
+        while current != None:
+            if current.getData() == item:
+                count += 1
+        return count
+
+    def __getitem__ (self, index):
+        &#39;&#39;&#39; replace built-in class method that returns the item for the given
+         index
+        pre: self, index, index should be less than length of list, list
+        should not be empty
+        post: return item for the given index&#39;&#39;&#39;
+        if isinstance(index, slice):
+            if index.start == None or index.start &lt; 0:
+                start = 0
+            else:
+                start = index.start
+            if index.stop == None or index.stop &gt; self.length:
+                stop = self.length
+            else:
+                stop = index.stop
+            current = self.head
+            for i in range(self.length - stop):
+                current = current.getNext()
+            newHead = Node(deepcopy(current.data))
+            previous = newHead
+            for i in range(stop - start -1):
+                if current.getNext() == None:
+                    break
+                current = current.getNext()
+                previous.setNext(Node(deepcopy(current.data)))
+                previous = previous.getNext()
+            return LinkedList(newHead, stop - start)
+        else:
+            current = self.head
+            if index &lt; 0:
+                if -index &gt; self.length:
+                    raise IndexError
+                return self[self.length+index]
+            else:
+                i = self.length - 1
+                while True:
+                    if current == None:
+                        raise IndexError
+                    if i &lt;= index:
+                        break
+                    current = current.getNext()
+                    i -= 1
+                return current.getData()
+
+    def __iter__(self):
+        &#39;&#39;&#39; built-in class method, makes LinkedList objects iterable
+        pre: self
+        post: self.head, first Node on the list&#39;&#39;&#39;
+        return self.forward()
+
+    def __reversed__(self):
+        &#39;&#39;&#39; built-in class method, makes LinkedList objects reverse iterable
+        pre: self
+        post: self.head, first Node on the list&#39;&#39;&#39;
+        return self.backward()
+
+    def __repr__(self):
+        s = &#39;]&#39;
+        current = self.head
+        while current != None:
+            if current.getNext() == None:
+                s = &#39;[&#39;+str(current.getData())+s
+                return s
+            s = &#39;, &#39;+str(current.getData())+s
+            current = current.getNext()
+        return &#39;[]&#39;
+
+    def forward(self):
+        for i in range(self.length):
+            yield self[i]
+
+    def backward(self):
+        current = self.head
+        while current != None:
+            yield current.getData()
+            current = current.getNext()
+
+    def __add__(self, otherLinkedList):
+        new_list = self.__class__()
+        new_list.extend(self)
+        new_list.extend(otherLinkedList)
+        return new_list
+
+
+if __name__ == &#39;__main__&#39;:
+    o = LinkedList()
+    for i in range(100):
+        o.append(i)
+
+    for i in reversed(o):
+        print(i)
+    print(100000 in o)
+
+    print(o.pop())
+    print(o.pop(0))
+    o.insert(0, &#39;a&#39;)
+    print(o.pop(0))
+
+    a = o[:50]
+    for i in a:
+        print(i)
+    a = o[50:]
+    for i in a:
+        print(i)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="coinor.blimpy.LinkedList.LinkedList"><code class="flex name class">
+<span>class <span class="ident">LinkedList</span></span>
+</code></dt>
+<dd>
+<section class="desc"><dl>
+<dt>implementation of link list data structure.</dt>
+<dt>The behavior is designed to be the same as a Python list.</dt>
+<dt>For efficiency when using the list as a stack, the list is stored</dt>
+<dt>such that the last item in the list is the head node. Thus, the</dt>
+<dt>append, push, pop, and most other methods are efficient, but</dt>
+<dt>forward iteration is not. Reverse iteration is efficient, however,</dt>
+<dt><strong><code>pre</code></strong> :&ensp; <a title="coinor.blimpy.LinkedList.Node" href="#coinor.blimpy.LinkedList.Node"><code>Node</code></a> <code>is</code> <code>the</code> <code>head</code> <code>node</code> of <code>a</code> <code>linked</code> <code>list</code> <code>and</code> <code>length</code> <code>is</code> <code>the</code> <code>length</code> of</dt>
+<dd>that list</dd>
+<dt><strong><code>post</code></strong> :&ensp;<code>creates</code> <code>a</code> <a title="coinor.blimpy.LinkedList.LinkedList" href="#coinor.blimpy.LinkedList.LinkedList"><code>LinkedList</code></a> <code>type</code> <code>object</code></dt>
+<dd>&nbsp;</dd>
+</dl></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">class LinkedList(object):
+    &#39;&#39;&#39;implementation of link list data structure.
+    The behavior is designed to be the same as a Python list.
+    For efficiency when using the list as a stack, the list is stored
+    such that the last item in the list is the head node. Thus, the
+    append, push, pop, and most other methods are efficient, but
+    forward iteration is not. Reverse iteration is efficient, however,
+    pre:  Node is the head node of a linked list and length is the length of
+          that list
+    post: creates a LinkedList type object
+    &#39;&#39;&#39;
+
+    def __init__(self, Node=None, length = 0):
+        &#39;&#39;&#39; constructor method of the class
+        pre: self&#39;&#39;&#39;
+        self.head = Node
+        self.length = length
+
+    def __contains__(self, item):
+        &#39;&#39;&#39; sequential search method
+        pre: self, item to be searched
+        post: True if list contains the item, False otherwise&#39;&#39;&#39;
+        current = self.head
+        while current != None:
+            if current.getData() == item:
+                return True
+            else:
+                current = current.getNext()
+        return False
+
+    def remove(self, item):
+        &#39;&#39;&#39; class method that removes the first occurrence of the given item
+        if there is one
+        pre: self, item &#39;&#39;&#39;
+        current = self.head
+        previous = None
+        found = False
+        while not found and current != None:
+            if current.getData() == item:
+                found = True
+            else:
+                previous = current
+                current = current.getNext()
+
+        if not found:
+            return False
+        elif previous == None:
+            self.head = current.getNext()
+        else:
+            previous.setNext(current.getNext())
+        self.length -= 1
+        return True
+
+    def __delitem__(self, position):
+        if self.pop(position) == None:
+            raise KeyError(&#34;Index out of bounds&#34;)
+
+    def insert(self, position, item):
+        &#39;&#39;&#39; class method that inserts item to the given position
+        pre: self, position, item
+        position should not be greater than length of the list&#39;&#39;&#39;
+        previous = None
+        current = self.head
+        for i in range(self.length - position):
+            previous = current
+            current = current.getNext()
+        tmp = Node(item, current)
+        if previous == None:
+            self.head = tmp
+        else:
+            previous.setNext(tmp)
+        self.length += 1
+
+    def peek(self, index = None):
+        &#39;&#39;&#39; class method that retrieves, but does not remove,
+        the head (first element) of this list
+        pre: self
+        post: the data of the head of the list or None if the list is empty&#39;&#39;&#39;
+        if self.head == None:
+            return None
+        elif index == None:
+            return self.head.getData()
+        else:
+            return self[index]
+
+    def pop(self, index = None):
+        &#39;&#39;&#39; class method that removes the item at the given position
+        in the list, and returns it. If no index is specified
+        removes and returns the last item in the list
+        pre: self, position (optional), position should be less than length
+        of the list, list should not be empty
+        post: return the item at given index or last item if not specified&#39;&#39;&#39;
+        if (index is not None and
+            (index &gt; self.length -1 or index &lt; 0)):
+            return None
+        previous = None
+        current = self.head
+        if index == None:
+            current = self.head
+            self.head = self.head.getNext()
+        else:
+            for i in range(self.length - index - 1):
+                previous = current
+                current = current.getNext()
+            if previous == None:
+                self.head = current.getNext()
+            else:
+                previous.setNext(current.getNext())
+        self.length -= 1
+        return current.data
+
+    def __len__(self):
+        &#39;&#39;&#39; class method that returns the number of items in the list
+        pre: self
+        post: returns number of items in the list&#39;&#39;&#39;
+        return self.length
+
+    def append(self, item):
+        &#39;&#39;&#39; class method that appends the given item at the end of the list
+        pre: self, item&#39;&#39;&#39;
+        current = self.head
+        self.head = Node(item)
+        self.head.nextNode = current
+        self.length += 1
+
+    def extend(self, otherLinkedList):
+        &#39;&#39;&#39; class method that extends the list by adding otherLinkedList at the
+         end of the self
+         pre: self, otherLinkedList&#39;&#39;&#39;
+        #if self.head==None:
+        #    self.head = otherLinkedList.head
+        #    return
+        #if otherLinkedList.head==None:
+        #    return
+        for item in otherLinkedList:
+            self.append(item)
+
+    def index(self, item):
+        &#39;&#39;&#39; class method that returns the index of the first occurance of
+        item, returns None if there is no any item.
+        pre: self, item
+        post: item index or None&#39;&#39;&#39;
+        current = self.head
+        for index in range(self.length, 0 , -1):
+            if current == None:
+                break
+            if current.getData() == item:
+                return index
+            current = current.getNext()
+        return None
+
+    def count(self, item):
+        &#39;&#39;&#39; class method that counts the number of occurances of item
+         in the list
+        pre: self, item
+        post: number of occurances of item in the list&#39;&#39;&#39;
+        count = 0
+        current = self.head
+        while current != None:
+            if current.getData() == item:
+                count += 1
+        return count
+
+    def __getitem__ (self, index):
+        &#39;&#39;&#39; replace built-in class method that returns the item for the given
+         index
+        pre: self, index, index should be less than length of list, list
+        should not be empty
+        post: return item for the given index&#39;&#39;&#39;
+        if isinstance(index, slice):
+            if index.start == None or index.start &lt; 0:
+                start = 0
+            else:
+                start = index.start
+            if index.stop == None or index.stop &gt; self.length:
+                stop = self.length
+            else:
+                stop = index.stop
+            current = self.head
+            for i in range(self.length - stop):
+                current = current.getNext()
+            newHead = Node(deepcopy(current.data))
+            previous = newHead
+            for i in range(stop - start -1):
+                if current.getNext() == None:
+                    break
+                current = current.getNext()
+                previous.setNext(Node(deepcopy(current.data)))
+                previous = previous.getNext()
+            return LinkedList(newHead, stop - start)
+        else:
+            current = self.head
+            if index &lt; 0:
+                if -index &gt; self.length:
+                    raise IndexError
+                return self[self.length+index]
+            else:
+                i = self.length - 1
+                while True:
+                    if current == None:
+                        raise IndexError
+                    if i &lt;= index:
+                        break
+                    current = current.getNext()
+                    i -= 1
+                return current.getData()
+
+    def __iter__(self):
+        &#39;&#39;&#39; built-in class method, makes LinkedList objects iterable
+        pre: self
+        post: self.head, first Node on the list&#39;&#39;&#39;
+        return self.forward()
+
+    def __reversed__(self):
+        &#39;&#39;&#39; built-in class method, makes LinkedList objects reverse iterable
+        pre: self
+        post: self.head, first Node on the list&#39;&#39;&#39;
+        return self.backward()
+
+    def __repr__(self):
+        s = &#39;]&#39;
+        current = self.head
+        while current != None:
+            if current.getNext() == None:
+                s = &#39;[&#39;+str(current.getData())+s
+                return s
+            s = &#39;, &#39;+str(current.getData())+s
+            current = current.getNext()
+        return &#39;[]&#39;
+
+    def forward(self):
+        for i in range(self.length):
+            yield self[i]
+
+    def backward(self):
+        current = self.head
+        while current != None:
+            yield current.getData()
+            current = current.getNext()
+
+    def __add__(self, otherLinkedList):
+        new_list = self.__class__()
+        new_list.extend(self)
+        new_list.extend(otherLinkedList)
+        return new_list</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="coinor.blimpy.LinkedList.LinkedList.__init__"><code class="name flex">
+<span>def <span class="ident">__init__</span></span>(<span>self, Node=None, length=0)</span>
+</code></dt>
+<dd>
+<section class="desc"><dl>
+<dt>constructor method of the class</dt>
+<dt><strong><code>pre</code></strong> :&ensp;<code>self</code></dt>
+<dd>&nbsp;</dd>
+</dl></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def __init__(self, Node=None, length = 0):
+    &#39;&#39;&#39; constructor method of the class
+    pre: self&#39;&#39;&#39;
+    self.head = Node
+    self.length = length</code></pre>
+</details>
+</dd>
+<dt id="coinor.blimpy.LinkedList.LinkedList.append"><code class="name flex">
+<span>def <span class="ident">append</span></span>(<span>self, item)</span>
+</code></dt>
+<dd>
+<section class="desc"><dl>
+<dt>class method that appends the given item at the end of the list</dt>
+<dt><strong><code>pre</code></strong> :&ensp;<code>self</code>, <code>item</code></dt>
+<dd>&nbsp;</dd>
+</dl></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def append(self, item):
+    &#39;&#39;&#39; class method that appends the given item at the end of the list
+    pre: self, item&#39;&#39;&#39;
+    current = self.head
+    self.head = Node(item)
+    self.head.nextNode = current
+    self.length += 1</code></pre>
+</details>
+</dd>
+<dt id="coinor.blimpy.LinkedList.LinkedList.backward"><code class="name flex">
+<span>def <span class="ident">backward</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def backward(self):
+    current = self.head
+    while current != None:
+        yield current.getData()
+        current = current.getNext()</code></pre>
+</details>
+</dd>
+<dt id="coinor.blimpy.LinkedList.LinkedList.count"><code class="name flex">
+<span>def <span class="ident">count</span></span>(<span>self, item)</span>
+</code></dt>
+<dd>
+<section class="desc"><dl>
+<dt>class method that counts the number of occurances of item</dt>
+<dt>in the list</dt>
+<dt><strong><code>pre</code></strong> :&ensp;<code>self</code>, <code>item</code></dt>
+<dd>&nbsp;</dd>
+<dt><strong><code>post</code></strong> :&ensp;<code>number</code> of <code>occurances</code> of <code>item</code> <code>in</code> <code>the</code> <code>list</code></dt>
+<dd>&nbsp;</dd>
+</dl></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def count(self, item):
+    &#39;&#39;&#39; class method that counts the number of occurances of item
+     in the list
+    pre: self, item
+    post: number of occurances of item in the list&#39;&#39;&#39;
+    count = 0
+    current = self.head
+    while current != None:
+        if current.getData() == item:
+            count += 1
+    return count</code></pre>
+</details>
+</dd>
+<dt id="coinor.blimpy.LinkedList.LinkedList.extend"><code class="name flex">
+<span>def <span class="ident">extend</span></span>(<span>self, otherLinkedList)</span>
+</code></dt>
+<dd>
+<section class="desc"><dl>
+<dt>class method that extends the list by adding otherLinkedList at the</dt>
+<dt>end of the self</dt>
+<dt><strong><code>pre</code></strong> :&ensp;<code>self</code>, <code>otherLinkedList</code></dt>
+<dd>&nbsp;</dd>
+</dl></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def extend(self, otherLinkedList):
+    &#39;&#39;&#39; class method that extends the list by adding otherLinkedList at the
+     end of the self
+     pre: self, otherLinkedList&#39;&#39;&#39;
+    #if self.head==None:
+    #    self.head = otherLinkedList.head
+    #    return
+    #if otherLinkedList.head==None:
+    #    return
+    for item in otherLinkedList:
+        self.append(item)</code></pre>
+</details>
+</dd>
+<dt id="coinor.blimpy.LinkedList.LinkedList.forward"><code class="name flex">
+<span>def <span class="ident">forward</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def forward(self):
+    for i in range(self.length):
+        yield self[i]</code></pre>
+</details>
+</dd>
+<dt id="coinor.blimpy.LinkedList.LinkedList.index"><code class="name flex">
+<span>def <span class="ident">index</span></span>(<span>self, item)</span>
+</code></dt>
+<dd>
+<section class="desc"><dl>
+<dt>class method that returns the index of the first occurance of</dt>
+<dt>item, returns None if there is no any item.</dt>
+<dt><strong><code>pre</code></strong> :&ensp;<code>self</code>, <code>item</code></dt>
+<dd>&nbsp;</dd>
+<dt><strong><code>post</code></strong> :&ensp;<code>item</code> <code>index</code> or <code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def index(self, item):
+    &#39;&#39;&#39; class method that returns the index of the first occurance of
+    item, returns None if there is no any item.
+    pre: self, item
+    post: item index or None&#39;&#39;&#39;
+    current = self.head
+    for index in range(self.length, 0 , -1):
+        if current == None:
+            break
+        if current.getData() == item:
+            return index
+        current = current.getNext()
+    return None</code></pre>
+</details>
+</dd>
+<dt id="coinor.blimpy.LinkedList.LinkedList.insert"><code class="name flex">
+<span>def <span class="ident">insert</span></span>(<span>self, position, item)</span>
+</code></dt>
+<dd>
+<section class="desc"><dl>
+<dt>class method that inserts item to the given position</dt>
+<dt><strong><code>pre</code></strong> :&ensp;<code>self</code>, <code>position</code>, <code>item</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<p>position should not be greater than length of the list</p></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def insert(self, position, item):
+    &#39;&#39;&#39; class method that inserts item to the given position
+    pre: self, position, item
+    position should not be greater than length of the list&#39;&#39;&#39;
+    previous = None
+    current = self.head
+    for i in range(self.length - position):
+        previous = current
+        current = current.getNext()
+    tmp = Node(item, current)
+    if previous == None:
+        self.head = tmp
+    else:
+        previous.setNext(tmp)
+    self.length += 1</code></pre>
+</details>
+</dd>
+<dt id="coinor.blimpy.LinkedList.LinkedList.peek"><code class="name flex">
+<span>def <span class="ident">peek</span></span>(<span>self, index=None)</span>
+</code></dt>
+<dd>
+<section class="desc"><dl>
+<dt>class method that retrieves, but does not remove,</dt>
+<dt>the head (first element) of this list</dt>
+<dt><strong><code>pre</code></strong> :&ensp;<code>self</code></dt>
+<dd>&nbsp;</dd>
+<dt><strong><code>post</code></strong> :&ensp;<code>the</code> <code>data</code> of <code>the</code> <code>head</code> of <code>the</code> <code>list</code> or <code>None</code> <code>if</code> <code>the</code> <code>list</code> <code>is</code> <code>empty</code></dt>
+<dd>&nbsp;</dd>
+</dl></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def peek(self, index = None):
+    &#39;&#39;&#39; class method that retrieves, but does not remove,
+    the head (first element) of this list
+    pre: self
+    post: the data of the head of the list or None if the list is empty&#39;&#39;&#39;
+    if self.head == None:
+        return None
+    elif index == None:
+        return self.head.getData()
+    else:
+        return self[index]</code></pre>
+</details>
+</dd>
+<dt id="coinor.blimpy.LinkedList.LinkedList.pop"><code class="name flex">
+<span>def <span class="ident">pop</span></span>(<span>self, index=None)</span>
+</code></dt>
+<dd>
+<section class="desc"><dl>
+<dt>class method that removes the item at the given position</dt>
+<dt>in the list, and returns it. If no index is specified</dt>
+<dt>removes and returns the last item in the list</dt>
+<dt><strong><code>pre</code></strong> :&ensp;<code>self</code>, <code>position</code> (optional), <code>position</code> <code>should</code> <code>be</code> <code>less</code> <code>than</code> <code>length</code></dt>
+<dd>&nbsp;</dd>
+<dt>of the list, list should not be empty</dt>
+<dt><strong><code>post</code></strong> :&ensp;<code>return</code> <code>the</code> <code>item</code> <code>at</code> <code>given</code> <code>index</code> or <code>last</code> <code>item</code> <code>if</code> <code>not</code> <code>specified</code></dt>
+<dd>&nbsp;</dd>
+</dl></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def pop(self, index = None):
+    &#39;&#39;&#39; class method that removes the item at the given position
+    in the list, and returns it. If no index is specified
+    removes and returns the last item in the list
+    pre: self, position (optional), position should be less than length
+    of the list, list should not be empty
+    post: return the item at given index or last item if not specified&#39;&#39;&#39;
+    if (index is not None and
+        (index &gt; self.length -1 or index &lt; 0)):
+        return None
+    previous = None
+    current = self.head
+    if index == None:
+        current = self.head
+        self.head = self.head.getNext()
+    else:
+        for i in range(self.length - index - 1):
+            previous = current
+            current = current.getNext()
+        if previous == None:
+            self.head = current.getNext()
+        else:
+            previous.setNext(current.getNext())
+    self.length -= 1
+    return current.data</code></pre>
+</details>
+</dd>
+<dt id="coinor.blimpy.LinkedList.LinkedList.remove"><code class="name flex">
+<span>def <span class="ident">remove</span></span>(<span>self, item)</span>
+</code></dt>
+<dd>
+<section class="desc"><dl>
+<dt>class method that removes the first occurrence of the given item</dt>
+<dt>if there is one</dt>
+<dt><strong><code>pre</code></strong> :&ensp;<code>self</code>, <code>item</code></dt>
+<dd>&nbsp;</dd>
+</dl></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def remove(self, item):
+    &#39;&#39;&#39; class method that removes the first occurrence of the given item
+    if there is one
+    pre: self, item &#39;&#39;&#39;
+    current = self.head
+    previous = None
+    found = False
+    while not found and current != None:
+        if current.getData() == item:
+            found = True
+        else:
+            previous = current
+            current = current.getNext()
+
+    if not found:
+        return False
+    elif previous == None:
+        self.head = current.getNext()
+    else:
+        previous.setNext(current.getNext())
+    self.length -= 1
+    return True</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="coinor.blimpy.LinkedList.Node"><code class="flex name class">
+<span>class <span class="ident">Node</span></span>
+</code></dt>
+<dd>
+<section class="desc"><dl>
+<dt>Basic data type that LinkedList will contain</dt>
+<dt><strong><code>pre</code></strong> :&ensp;<code>data</code> <code>that</code> <code>node</code> <code>will</code> <code>contain</code></dt>
+<dd>&nbsp;</dd>
+<dt><strong><code>post</code></strong> :&ensp;<a title="coinor.blimpy.LinkedList.Node" href="#coinor.blimpy.LinkedList.Node"><code>Node</code></a> <code>type</code> <code>object</code></dt>
+<dd>&nbsp;</dd>
+</dl></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">class Node(object):
+    &#39;&#39;&#39; Basic data type that LinkedList will contain
+    pre: data that node will contain
+    post: Node type object
+    &#39;&#39;&#39;
+    def __init__(self, initdata, nextNode = None):
+        &#39;&#39;&#39;constructor of Node class
+        pre: Node class object (self), initial data (initdata)&#39;&#39;&#39;
+        self.data = initdata
+        self.nextNode = nextNode
+
+    def getData(self):
+        &#39;&#39;&#39; class method that returns to data
+        pre: self
+        post: data of the Node&#39;&#39;&#39;
+        return self.data
+
+    def getNext(self):
+        return self.nextNode
+
+    def setData(self, newdata):
+        &#39;&#39;&#39; class method that sets data
+        pre: self, new data&#39;&#39;&#39;
+        self.data = newdata
+
+    def setNext(self, newnext):
+        &#39;&#39;&#39; class method that changes the next Node
+        pre: self, new next&#39;&#39;&#39;
+        self.nextNode = newnext
+
+    def __repr__(self):
+        return &#39;Node instance, data:%s, nextNode:%s&#39; %(self.getData(), self.getNext())
+
+    def __str__(self):
+        return str(self.data)</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="coinor.blimpy.LinkedList.Node.__init__"><code class="name flex">
+<span>def <span class="ident">__init__</span></span>(<span>self, initdata, nextNode=None)</span>
+</code></dt>
+<dd>
+<section class="desc"><dl>
+<dt>constructor of Node class</dt>
+<dt><strong><code>pre</code></strong> :&ensp;<a title="coinor.blimpy.LinkedList.Node" href="#coinor.blimpy.LinkedList.Node"><code>Node</code></a> <code>class</code> <code>object</code> (<code>self</code>), <code>initial</code> <code>data</code> (<code>initdata</code>)</dt>
+<dd>&nbsp;</dd>
+</dl></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def __init__(self, initdata, nextNode = None):
+    &#39;&#39;&#39;constructor of Node class
+    pre: Node class object (self), initial data (initdata)&#39;&#39;&#39;
+    self.data = initdata
+    self.nextNode = nextNode</code></pre>
+</details>
+</dd>
+<dt id="coinor.blimpy.LinkedList.Node.getData"><code class="name flex">
+<span>def <span class="ident">getData</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><dl>
+<dt>class method that returns to data</dt>
+<dt><strong><code>pre</code></strong> :&ensp;<code>self</code></dt>
+<dd>&nbsp;</dd>
+<dt><strong><code>post</code></strong> :&ensp;<code>data</code> of <code>the</code> <a title="coinor.blimpy.LinkedList.Node" href="#coinor.blimpy.LinkedList.Node"><code>Node</code></a></dt>
+<dd>&nbsp;</dd>
+</dl></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def getData(self):
+    &#39;&#39;&#39; class method that returns to data
+    pre: self
+    post: data of the Node&#39;&#39;&#39;
+    return self.data</code></pre>
+</details>
+</dd>
+<dt id="coinor.blimpy.LinkedList.Node.getNext"><code class="name flex">
+<span>def <span class="ident">getNext</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def getNext(self):
+    return self.nextNode</code></pre>
+</details>
+</dd>
+<dt id="coinor.blimpy.LinkedList.Node.setData"><code class="name flex">
+<span>def <span class="ident">setData</span></span>(<span>self, newdata)</span>
+</code></dt>
+<dd>
+<section class="desc"><dl>
+<dt>class method that sets data</dt>
+<dt><strong><code>pre</code></strong> :&ensp;<code>self</code>, <code>new</code> <code>data</code></dt>
+<dd>&nbsp;</dd>
+</dl></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def setData(self, newdata):
+    &#39;&#39;&#39; class method that sets data
+    pre: self, new data&#39;&#39;&#39;
+    self.data = newdata</code></pre>
+</details>
+</dd>
+<dt id="coinor.blimpy.LinkedList.Node.setNext"><code class="name flex">
+<span>def <span class="ident">setNext</span></span>(<span>self, newnext)</span>
+</code></dt>
+<dd>
+<section class="desc"><dl>
+<dt>class method that changes the next Node</dt>
+<dt><strong><code>pre</code></strong> :&ensp;<code>self</code>, <code>new</code> <code>next</code></dt>
+<dd>&nbsp;</dd>
+</dl></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def setNext(self, newnext):
+    &#39;&#39;&#39; class method that changes the next Node
+    pre: self, new next&#39;&#39;&#39;
+    self.nextNode = newnext</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="coinor.blimpy" href="index.html">coinor.blimpy</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="coinor.blimpy.LinkedList.LinkedList" href="#coinor.blimpy.LinkedList.LinkedList">LinkedList</a></code></h4>
+<ul class="two-column">
+<li><code><a title="coinor.blimpy.LinkedList.LinkedList.__init__" href="#coinor.blimpy.LinkedList.LinkedList.__init__">__init__</a></code></li>
+<li><code><a title="coinor.blimpy.LinkedList.LinkedList.append" href="#coinor.blimpy.LinkedList.LinkedList.append">append</a></code></li>
+<li><code><a title="coinor.blimpy.LinkedList.LinkedList.backward" href="#coinor.blimpy.LinkedList.LinkedList.backward">backward</a></code></li>
+<li><code><a title="coinor.blimpy.LinkedList.LinkedList.count" href="#coinor.blimpy.LinkedList.LinkedList.count">count</a></code></li>
+<li><code><a title="coinor.blimpy.LinkedList.LinkedList.extend" href="#coinor.blimpy.LinkedList.LinkedList.extend">extend</a></code></li>
+<li><code><a title="coinor.blimpy.LinkedList.LinkedList.forward" href="#coinor.blimpy.LinkedList.LinkedList.forward">forward</a></code></li>
+<li><code><a title="coinor.blimpy.LinkedList.LinkedList.index" href="#coinor.blimpy.LinkedList.LinkedList.index">index</a></code></li>
+<li><code><a title="coinor.blimpy.LinkedList.LinkedList.insert" href="#coinor.blimpy.LinkedList.LinkedList.insert">insert</a></code></li>
+<li><code><a title="coinor.blimpy.LinkedList.LinkedList.peek" href="#coinor.blimpy.LinkedList.LinkedList.peek">peek</a></code></li>
+<li><code><a title="coinor.blimpy.LinkedList.LinkedList.pop" href="#coinor.blimpy.LinkedList.LinkedList.pop">pop</a></code></li>
+<li><code><a title="coinor.blimpy.LinkedList.LinkedList.remove" href="#coinor.blimpy.LinkedList.LinkedList.remove">remove</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="coinor.blimpy.LinkedList.Node" href="#coinor.blimpy.LinkedList.Node">Node</a></code></h4>
+<ul class="">
+<li><code><a title="coinor.blimpy.LinkedList.Node.__init__" href="#coinor.blimpy.LinkedList.Node.__init__">__init__</a></code></li>
+<li><code><a title="coinor.blimpy.LinkedList.Node.getData" href="#coinor.blimpy.LinkedList.Node.getData">getData</a></code></li>
+<li><code><a title="coinor.blimpy.LinkedList.Node.getNext" href="#coinor.blimpy.LinkedList.Node.getNext">getNext</a></code></li>
+<li><code><a title="coinor.blimpy.LinkedList.Node.setData" href="#coinor.blimpy.LinkedList.Node.setData">setData</a></code></li>
+<li><code><a title="coinor.blimpy.LinkedList.Node.setNext" href="#coinor.blimpy.LinkedList.Node.setNext">setNext</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.5.3</a>.</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>
